@@ -45,7 +45,7 @@ class MainChatArea extends Component {
       const g_id = this.props.runningDiscussion
       const s_id = this.props.firebase.uid
       this.props.addUserToGroup(username, g_id, s_id)
-      
+      message.info(`${username} has been added.`, 3)
     } else {
       message.warn("Only admin can add new members.", 3)
     }
