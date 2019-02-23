@@ -136,7 +136,6 @@ hr{
 }
 
 #send-btn{
-	position: relative;
 	margin: 3% !important;
 	margin-bottom: 2% !important;
 }
@@ -146,3 +145,6 @@ hr{
 	width: 50%;
 }
 
+#inputta{
+	width: 50%;
+}
