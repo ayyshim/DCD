@@ -36,7 +36,6 @@ class ProblemsList extends Component {
 const mapStateToProps = (state, ownProps) => {
     const key = ownProps.runningDiscussion
     const problems = state.firestore.ordered.problems
-     console.log("Problems",problems)
     const list_problems = problems && problems.filter((p) => {return p.g_id===key})
     return {
         list_problems

@@ -29,7 +29,6 @@ class MainChatArea extends Component {
 
  
   render() {
-    console.log(this.props.firebase)
     return (
       <Col span={18}>
         {this.props.group && (<Row id="message-box" className="up">
@@ -121,9 +120,7 @@ const mapStateToProps = (state, ownProps) => {
     state.firestore.ordered.members &&
     state.firestore.ordered.members.filter(m => {
       return m.g_id === key;
-    });
-  console.log(members);
-  const messages = state.firestore.ordered.messages;
+    });  const messages = state.firestore.ordered.messages;
   const list_message =
     messages &&
     messages.filter(msg => {
