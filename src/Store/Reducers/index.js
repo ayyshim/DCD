@@ -5,6 +5,7 @@ import {firestoreReducer} from 'redux-firestore'
 import DashboardReducer from './dashboardReducer';
 import ChatReducer from './chatReducer';
 import ProblemReducer from './problemReducer';
+import ProjectReducer from './projectReducer';
 
 const rootReducer = combineReducers({
     auth: AuthReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     firebase: firebaseReducer,
     firestore: firestoreReducer,
     chatRed: ChatReducer,
-    problem: ProblemReducer
+    problem: ProblemReducer,
+    project: ProjectReducer
 })
 
 export default rootReducer
