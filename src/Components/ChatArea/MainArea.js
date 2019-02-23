@@ -163,12 +163,12 @@ class MainChatArea extends Component {
                       value={this.state.message}
                     />
                   </Col>
-                  <Col span={5} offset={1}>
+                  <Col span={7} offset={2}>
                     <Button onClick={this.onClick} type="primary" id="send-btn">
                       Send <Icon type="cloud-upload" />
                     </Button>
                   </Col>
-                  <Col span={4}><Button type="warning">Leave Group</Button></Col>
+                  <Col span={1}><Button type="danger">Leave Group</Button></Col>
                 </Row>
               )}
             </div>
