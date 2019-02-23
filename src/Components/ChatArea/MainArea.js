@@ -119,9 +119,8 @@ class MainChatArea extends Component {
             </Col>
 
             <Col span={12}>
-              {this.props.group.adminName === this.props.fi.profile.username ? (
-                <FileUploaderCustom user={this.props.fi.profile.username} problem_id={this.props.runningDiscussion} />
-              ) : null}
+              <FileUploaderCustom user={this.props.fi.profile.username} problem_id={this.props.runningDiscussion} />
+              
             </Col>
           </Row>
         )}

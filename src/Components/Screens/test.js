@@ -4,13 +4,17 @@ import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import {Button} from 'antd';
-
+import fs from 'fs'
 const code = `Enter Code Here!!!
 `;
  
 class Test extends React.Component {
   state = { code };
- 
+  
+  componentDidMount() {
+    this.loadData()
+  }
+
   render() {
     
     return (
@@ -26,10 +30,10 @@ class Test extends React.Component {
         }}
       />
       <br/>
-      <Button onClick={this.onClose} style={{ marginRight: 8 }}>
+      <Button style={{ marginRight: 8 }}>
               Cancel
             </Button>
-            <Button onClick={this.onClose} type="primary">
+            <Button type="primary">
               Submit
             </Button>
             </div>
