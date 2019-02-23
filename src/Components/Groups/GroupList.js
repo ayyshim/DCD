@@ -12,7 +12,7 @@ class GroupList extends Component {
 
     render() { 
         const {groupSource} = this.props
-        const mapGroupList = groupSource && groupSource.map((group) => { return <GroupItem onClick={this.onClick.bind(this, group.id)} key={group.id} group={group}/>})
+        const mapGroupList = groupSource && groupSource.map((group) => { return <GroupItem onClick={this.onClick.bind(this, group[0].id)} key={group[0].id} group={group[0]}/>})
 
         return ( 
             <Menu  mode="inline" defaultSelectedKeys={['none']}>

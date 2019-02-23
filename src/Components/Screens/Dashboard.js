@@ -10,6 +10,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import GroupList from '../Groups/GroupList'
 import MainChatArea from '../ChatArea/MainArea';
 import ProblemsList from '../Problems/ProblemsList';
+import { push_uniq } from 'terser';
 
 
 const {
@@ -129,9 +130,23 @@ class DashboardScreen extends Component {
     }
 }
 
-const mapStateToProps = state => { 
+const mapStateToProps = state => {
+  const members = state.firestore.ordered.members
+  const groups = state.firestore.ordered.groups
+  var groupsIn = []
+  members && members.map((member) => {
+    if(member.name === state.firebase.profile.username) {
+      groupsIn.push(member.g_id)
+    }
+  })
+  
+  var groupsList = []
+  groupsIn.map((gid)=> {
+    groupsList.push(groups.filter((group) => {return group.id === gid}))
+  })
+
   return {
-    groups: state.firestore.ordered.groups,
+    groups: groupsList,
     firebase: state.firebase.auth,
     fi: state.firebase,
     groupDisscussion: state.chatRed.runningDiscussion,
