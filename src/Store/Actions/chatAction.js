@@ -14,6 +14,7 @@ export const Chat = (details) => (dispatch, getState, {getFirebase, getFirestore
         message: details.message,
         s_id: details.s_id,
         g_id: details.g_id,
+        s_dn: details.s_dn,
         createdAt: Date()
     }).then(()=>{
         dispatch({
