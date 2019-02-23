@@ -168,7 +168,7 @@ class DashboardScreen extends Component {
                         </div>
 
                           <div className="left-b">
-                            <span className="btn"><Button type="primary" className="btna" onClick={this.showModal}>Create Discussion Group</Button></span>
+                            <span className="btn"><Button type="primary" onClick={this.showModal}>Create Discussion Group</Button></span>
                             <Modal title="Group" visible={this.state.visible} onOk={this.handleOk} onCancel={this.handleCancel}>
                                 <Input type="text" placeholder="Group name" id="name" onChange={this.onNameChange}/>
                                 <Input type="text" placeholder="Group description" id="description" onChange={this.onDesChange}/>
