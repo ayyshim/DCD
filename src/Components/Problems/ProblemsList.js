@@ -20,14 +20,18 @@ class ProblemsList extends Component {
    
 
     render() { 
-        const mapProblem = this.props.list_problems && this.props.list_problems.map((problem) => {return <ProblemItem key={problem.id} onClick={this.onClick.bind(this, problem)} problem={problem}/>})
+        var i = -1;
+        const mapProblem = this.props.list_problems && this.props.list_problems.map((problem) => { 
+            i++
+             return (
+            <ProblemItem key={problem.id} index={i} onClick={this.onClick.bind(this, problem)} problem={problem}/>    
+        )})
         return ( 
             <Col span={6} id="activity-box">
                         <p className="up txt-center" id="grp-name">Activity Logs</p>
                         <Sider style={{overflow: 'auto', height: '60vh', position: 'relative', right: 0}} className="side">
                             {mapProblem}
                         </Sider>
-                        <Button type="primary" id="dwn"><Icon type="download" />Download</Button>
                         </Col>
          );
     }

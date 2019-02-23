@@ -83,7 +83,7 @@ class DashboardScreen extends Component {
   
     render() 
     { 
-        
+        console.log(this.props.problems)  
         const {firebase} = this.props
         if(!firebase.uid) return <Redirect to="/"/> 
         return ( 
@@ -136,7 +136,6 @@ const mapStateToProps = state => {
     fi: state.firebase,
     groupDisscussion: state.chatRed.runningDiscussion,
     
-  
   };
 };
 
@@ -157,7 +156,8 @@ export default compose(
       collection: "members"
     },
     {
-      collection: "problems"
+      collection: "problems",
+      orderBy: ['created_at', 'desc']
     },
     {
       collection: "messages",
