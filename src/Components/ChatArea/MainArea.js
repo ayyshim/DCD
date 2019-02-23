@@ -35,7 +35,7 @@ class MainChatArea extends Component {
     return (
       <Col span={18}>
         <Row id="message-box" className="up">
-          <Col span={18}>
+          <Col span={16}>
             <div id="grp-name">
               {this.props.group && this.props.group.name}{" "}
               {this.props.problem.problem_title === undefined
@@ -44,10 +44,16 @@ class MainChatArea extends Component {
             </div>
           </Col>
 
-          <Col span={6} id="grp-icon">
+          <Col span={8} id="grp-icon">
+            <Button type="danger" id="send-btn">
+            <Icon type="delete" />
+            </Button>
+          <Button type="primary" id="send-btn">
+                Share Problem
+                  </Button>
             <Dropdown overlay={this.props.menu}>
               <a className="ant-dropdown-link" href="#">
-                <Icon type="ellipsis" size="large" />
+                <Icon type="plus-circle" size="large" />
               </a>
             </Dropdown>
           </Col>
