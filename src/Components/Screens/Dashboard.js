@@ -222,7 +222,8 @@ export default compose(
       collection: "problems"
     },
     {
-      collection: "messages"
+      collection: "messages",
+      orderBy: ['createdAt', 'desc']
     }
   ]),
   connect(

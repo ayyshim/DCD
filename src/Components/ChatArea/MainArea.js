@@ -11,6 +11,7 @@ class MainChatArea extends Component {
     const details = {
       message: this.state.message,
       s_id: this.props.firebase.uid,
+      s_dn : this.props.firebase.displayName,
       g_id: this.props.runningDiscussion
     };
     this.props.send_message(details);
@@ -25,13 +26,9 @@ class MainChatArea extends Component {
     });
   };
 
-  getUsername = (uid) => {
-    const user_list = this.props.firestore.data.users
-    const username = user_list && user_list[0].username
-    return username
-  }
-
+ 
   render() {
+    console.log(this.props.firebase)
     return (
       <Col span={18}>
         <Row id="message-box" className="up">
@@ -62,7 +59,7 @@ class MainChatArea extends Component {
               renderItem={item => (
                 <Comment
                   id="chat"
-                  author={<b>{this.props.firebase.uid === item.s_id ? "YOU" : this.getUsername.bind(this, item.s_id)}</b>}
+                  author={<b>{this.props.firebase.uid === item.s_id ? "YOU" : item.s_dn}</b>}
                   content={<p>{item.message}</p>}
                   datetime={
                     <Tooltip
