@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Button, List, Tooltip, Col, Row, Dropdown, Icon, Comment } from "antd";
+import { Button, List, Tooltip, Col, Row, Dropdown, Icon, Comment, Input } from "antd";
 import { connect } from "react-redux";
 import moment from "moment";
 import { Chat } from "../../Store/Actions/chatAction";
+
 
 class MainChatArea extends Component {
   state = {};
@@ -32,7 +33,7 @@ class MainChatArea extends Component {
     return (
       <Col span={18}>
         {this.props.group && (<Row id="message-box" className="up">
-          <Col span={16}>
+          <Col span={10}>
             <div id="grp-name">
               {this.props.group && this.props.group.name}{" "}
               {this.props.problem.problem_title === undefined
@@ -41,16 +42,14 @@ class MainChatArea extends Component {
             </div>
           </Col>
 
-          <Col span={8} id="grp-icon">  
-          <Button type="primary" id="send-btn">
-                Share Problem
-                  </Button>
+          <Col span={14} id="grp-icon"> 
+          <Input type="text" placeholder="Username" id="inputta"/>
+          <Button type="primary">Add User</Button> <Button>Share Code</Button>
             <Dropdown overlay={this.props.menu}>
               <a className="ant-dropdown-link" href="#">
                 <Icon type="meh" />
               </a>
             </Dropdown>
-            <Icon type="plus-circle" />
           </Col>
         </Row>)}
 
@@ -91,7 +90,7 @@ class MainChatArea extends Component {
               {this.props.group && (
                 <Row>
                   <Col span={14}>
-                    <input
+                    <Input
                       onChange={this.onChangeMessage}
                       placeholder="Type Message"
                       id="txt"
