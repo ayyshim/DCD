@@ -93,7 +93,7 @@ class DashboardScreen extends Component {
                     <Col span={4} className="sidebar">
                         <p className="btn"><br/><Avatar src={this.props.firebase.photoURL} shape="circle" size="large" /><br />
                         <span><b>  {this.props.firebase.displayName ? this.props.firebase.displayName : this.fi.profile.username}</b><br/>
-                        <Button type="danger" size="small" onClick={this.logoutClick}>Logout</Button></span></p>
+                        <Button type="danger" onClick={this.logoutClick}>Logout</Button></span></p>
                         <hr/>
                         <div className="left-a">
                                 <Sider style={{overflow: 'auto', height: '60vh', position: 'relative', left: 0}} className="side">
