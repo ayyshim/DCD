@@ -8,7 +8,6 @@ const DashboardReducer = (state = initState, action) => {
             console.log(action.payload)
             return state
         case GROUP_CREATE_ERROR:
-            console.log(action.payload)
             return state
         default:
             return state

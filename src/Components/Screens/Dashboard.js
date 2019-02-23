@@ -129,13 +129,18 @@ class DashboardScreen extends Component {
   };
 
   handleOk = () => {
+
     const group = {
       name: this.state.name,
       descpt: this.state.description,
       createdBy: this.props.firebase.uid,
+      adminName: this.props.fi.profile.username,
       createdAt: new Date()
     };
     this.props.createGroup(group);
+    this.setState({
+      visible: false
+    })
   };
 
   componentWillReceiveProps(nextProps) {
@@ -197,6 +202,7 @@ const mapStateToProps = state => {
   return {
     groups: state.firestore.ordered.groups,
     firebase: state.firebase.auth,
+    fi: state.firebase,
     groupDisscussion: state.chatRed.runningDiscussion,
   
   };

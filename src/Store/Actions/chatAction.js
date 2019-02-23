@@ -9,7 +9,6 @@ export const ClickdGD = (key) => (dispatch) => {
 
 export const Chat = (details) => (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore()
-    console.log(details)
     firestore.collection("messages").add({
         message: details.message,
         s_id: details.s_id,
