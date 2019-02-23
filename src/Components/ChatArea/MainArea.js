@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Menu, Button, List, Tooltip, Col, Row, Dropdown, Icon, Comment } from "antd";
+import {Menu, Button, List, Tooltip, Col, Row, Dropdown, Icon, Comment, Input } from "antd";
 import { connect } from "react-redux";
 import moment from "moment";
 import { Chat } from "../../Store/Actions/chatAction";
@@ -41,7 +41,7 @@ class MainChatArea extends Component {
     return (
       <Col span={18}>
         {this.props.group && (<Row id="message-box" className="up">
-          <Col span={16}>
+          <Col span={12}>
             <div id="grp-name">
               {this.props.group && this.props.group.name}{" "}
               {this.props.problem.problem_title === undefined
@@ -50,16 +50,22 @@ class MainChatArea extends Component {
             </div>
           </Col>
 
-          <Col span={8} id="grp-icon">  
-          <Button type="primary" id="send-btn">
-                Share Problem
+          <Col span={12} id="grp-icon"> 
+          <Row>
+          <Col span={12}>
+          <Input type="text" id="uname" placeholder="Username"/>
+          <Button type="primary">Add</Button>
+          </Col>
+          <Col span={10} offset={2}>
+          <Button id="send-btn">
+                Share Code
                   </Button>
+
             <Dropdown overlay={menu}>
               <Link to="#" className="ant-dropdown-link">
                 <Icon type="meh" />
               </Link>
-            </Dropdown>
-            <Icon type="plus-circle" />
+            </Dropdown></Col></Row>
           </Col>
         </Row>)}
 
@@ -100,7 +106,7 @@ class MainChatArea extends Component {
               {this.props.group && (
                 <Row>
                   <Col span={14}>
-                    <input
+                    <Input
                       onChange={this.onChangeMessage}
                       placeholder="Type Message"
                       id="txt"
