@@ -143,6 +143,14 @@ hr{
 
 #uname{
 	margin:6px !important;
-	width: 50%;
+	width: 25%;
 }
 
+#src{
+	margin: 24px !important;
+}
+
+.men{
+	margin: 0px !important;
+	margin-left: 30px !important;
+}

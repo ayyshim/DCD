@@ -5,6 +5,9 @@ import moment from "moment";
 import { Chat } from "../../Store/Actions/chatAction";
 import {Link} from 'react-router-dom'
 import { AddUserToChat } from "../../Store/Actions/chatAction";
+import FileUploaderCustom from '../../Components/FileUploaderCustom/FileUploaderCustom'
+
+
 class MainChatArea extends Component {
 
   state = {
@@ -73,27 +76,19 @@ class MainChatArea extends Component {
               {this.props.problem.problem_title === undefined
                 ? ""
                 : `> ${this.props.problem.problem_title}`}
-            </div>
-          </Col>
-
-          <Col span={12} id="grp-icon"> 
-          <Row>
-          <Col span={12}>
-          <Input type="text" onChange={this.onChangeUserToAdd} id="uname" value={this.state.add_user_name} placeholder="Username"/>
-          <Button type="primary" onClick={this.addUser}>Add</Button>
-          </Col>
-          <Col span={10} offset={2}>
-          <Button id="send-btn">
-                Share Code
-                  </Button>
-
-            <Dropdown overlay={menu}>
-              <Link to="#" className="ant-dropdown-link">
+                <Input type="text" onChange={this.onChangeUserToAdd} id="uname" value={this.state.add_user_name} placeholder="Username"/>
+          <Button type="primary" onClick={this.addUser}>Add</Button><Dropdown overlay={menu}>
+              <Link to="#" className="men">
                 <Icon type="meh" />
               </Link>
-            </Dropdown></Col></Row>
+            </Dropdown>
+            </div>
+            
           </Col>
-        </Row>)}
+
+          <Col span={12}> 
+          <FileUploaderCustom/>
+            </Col></Row>)}
 
         <Row id="chat-box" className="up">
           {this.props.group && (

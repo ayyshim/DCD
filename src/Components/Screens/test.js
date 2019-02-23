@@ -4,9 +4,7 @@ import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
  
-const code = `function add(a, b) {
-  return a + b;
-}
+const code = `Enter Code Here!!!
 `;
  
 class Test extends React.Component {
@@ -17,7 +15,7 @@ class Test extends React.Component {
       <Editor
         value={this.state.code}
         onValueChange={code => this.setState({ code })}
-        highlight={code => highlight(code, languages.html)}
+        highlight={code => highlight(code, languages.js)}
         padding={10}
         style={{
           fontFamily: '"Fira code", "Fira Mono", monospace',
