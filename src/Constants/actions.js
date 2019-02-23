@@ -8,3 +8,5 @@ export const USER_CREATE_ERROR="USER CREATE ERROR";
 export const CLICKED_GD = "CLICKED GD"
 export const CLICKED_PROBLEM = "CLICKED PROBLEM"
 export const MESSAGE_SENT = "MESSAGE SENT"
+export const ADD_USER = "ADD_USER"
+export const ADD_USER_ERROR = "ADD USER ERROR"

@@ -1,4 +1,4 @@
-import { CLICKED_GD } from "../../Constants/actions";
+import { CLICKED_GD, ADD_USER, ADD_USER_ERROR } from "../../Constants/actions";
 
 const initState = {
     runningDiscussion: ""
@@ -11,6 +11,11 @@ const ChatReducer = (state = initState, action) => {
                 ...state,
                 runningDiscussion: action.payload
             }
+        case ADD_USER:
+            return state
+        case ADD_USER_ERROR:
+            console.log(action.payload)
+            return state
         default:
             return {
                 ...state
