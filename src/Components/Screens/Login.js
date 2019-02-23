@@ -19,7 +19,7 @@ class LoginScreen extends Component {
                         <Col span={4}></Col>	
                     </Row>
                     <p className="btn">
-                        <Button loading={this.props.login.loading} onClick={this.props.loginWithGitHub} >
+                        <Button id="bttt" loading={this.props.login.loading} onClick={this.props.loginWithGitHub} >
                         {this.props.login.loading === false ? <Icon type="github" theme="filled" /> : null }
                          Login with GitHub
                         </Button>

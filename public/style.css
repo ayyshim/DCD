@@ -15,7 +15,11 @@ body{
 
 .btn{
 	text-align: center;
-	margin: 5px !important;
+}
+
+#bttt{
+	padding-bottom: 1em !important;
+	font-size: 16px;
 }
 
 .right{
@@ -153,4 +157,9 @@ hr{
 .men{
 	margin: 0px !important;
 	margin-left: 30px !important;
+}
+
+#dwn{
+	margin-left: 7em;
+	margin-top: 7em;
 }

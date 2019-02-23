@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
-
 import { Logout } from '../../Store/Actions/authActions';
 import { CreateGroup } from '../../Store/Actions/dashboardAction';
 import {Row, Col, Avatar} from 'antd';
@@ -94,7 +93,7 @@ class DashboardScreen extends Component {
                     <Col span={4} className="sidebar">
                         <p className="btn"><Avatar src={this.props.firebase.photoURL} shape="circle" size="large" /><br />
                         <span><b>  {this.props.firebase.displayName ? this.props.firebase.displayName : this.fi.profile.username}</b><br/>
-                        <Button type="danger" size="small" shape="circle" onClick={this.logoutClick}><Icon type="poweroff"/></Button></span></p>
+                        <Button type="danger" size="small" onClick={this.logoutClick}>Logout</Button></span></p>
                         <hr/>
                         <div className="left-a">
                                 <Sider style={{overflow: 'auto', height: '60vh', position: 'relative', left: 0}} className="side">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Col, Layout} from 'antd'
+import {Col, Layout, Button, Icon} from 'antd'
 import ProblemItem from './ProblemItem';
 import {connect} from 'react-redux'
 import { ClickedProblem } from '../../Store/Actions/problemActions';
@@ -27,6 +27,7 @@ class ProblemsList extends Component {
                         <Sider style={{overflow: 'auto', height: '60vh', position: 'relative', right: 0}} className="side">
                             {mapProblem}
                         </Sider>
+                        <Button type="primary" id="dwn"><Icon type="download" />Download</Button>
                         </Col>
          );
     }
