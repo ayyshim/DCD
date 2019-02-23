@@ -79,12 +79,12 @@ const text = <span>Code-Editor</span>;
 const buttonWidth = 70;
 
 const menu = (
-  <Menu onClick={onClick}>
-    <Menu.Item key="1">Share Problem</Menu.Item>
-    <Menu.Item key="2">Invite Member</Menu.Item>
-    <Menu.Item key="3">Exit Group</Menu.Item>
-    <Menu.Item key="4">Group Info</Menu.Item>
-  </Menu>
+  <Menu >
+    <Menu.Item>Ayyshim</Menu.Item>
+    <Menu.Item>kanxuravi</Menu.Item>
+    <Menu.Item>Vijay</Menu.Item>
+    <Menu.Item>Raviraaz</Menu.Item>
+    </Menu>
 );
 
 class DashboardScreen extends Component {
@@ -168,7 +168,7 @@ class DashboardScreen extends Component {
                         </div>
 
                           <div className="left-b">
-                            <span className="btn"><Button type="primary" className="btna" onClick={this.showModal}>Create Group</Button></span>
+                            <span className="btn"><Button type="primary" className="btna" onClick={this.showModal}>Create Discussion Group</Button></span>
                             <Modal title="Group" visible={this.state.visible} onOk={this.handleOk} onCancel={this.handleCancel}>
                                 <Input type="text" placeholder="Group name" id="name" onChange={this.onNameChange}/>
                                 <Input type="text" placeholder="Group description" id="description" onChange={this.onDesChange}/>

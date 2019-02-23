@@ -101,7 +101,8 @@ hr{
     border-radius: 8px !important;}
 
 #chat-box{
-height: 500px;
+	height: 500px;
+	overflow: scroll;
 }
 
 #activity-box .side,#chat-box-msg .side
@@ -140,4 +141,8 @@ height: 500px;
 	margin-bottom: 2% !important;
 }
 
+#uname{
+	margin:6px !important;
+	width: 50%;
+}
 

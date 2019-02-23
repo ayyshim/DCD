@@ -41,18 +41,16 @@ class MainChatArea extends Component {
             </div>
           </Col>
 
-          <Col span={8} id="grp-icon">
-            <Button type="danger" id="send-btn">
-            <Icon type="delete" />
-            </Button>
+          <Col span={8} id="grp-icon">  
           <Button type="primary" id="send-btn">
                 Share Problem
                   </Button>
             <Dropdown overlay={this.props.menu}>
               <a className="ant-dropdown-link" href="#">
-                <Icon type="plus-circle" size="large" />
+                <Icon type="meh" />
               </a>
             </Dropdown>
+            <Icon type="plus-circle" />
           </Col>
         </Row>)}
 
