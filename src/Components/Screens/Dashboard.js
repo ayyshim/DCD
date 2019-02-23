@@ -130,7 +130,7 @@ class DashboardScreen extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => { 
   return {
     groups: state.firestore.ordered.groups,
     firebase: state.firebase.auth,
@@ -152,7 +152,7 @@ export default compose(
       collection: "users"
     },
     {
-      collection: "groups"
+      collection: "groups",
     },
     {
       collection: "members"

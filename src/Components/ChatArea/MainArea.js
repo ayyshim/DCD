@@ -19,7 +19,7 @@ class MainChatArea extends Component {
     const details = {
       message: this.state.message,
       s_id: this.props.firebase.uid,
-      s_dn : this.props.firebase.displayName,
+      s_dn : this.props.firebase.displayName ? this.props.firebase.displayName : this.props.fi.profile.username,
       g_id: this.props.runningDiscussion
     };
     this.props.send_message(details);
@@ -48,7 +48,7 @@ class MainChatArea extends Component {
       const g_id = this.props.runningDiscussion
       const s_id = this.props.firebase.uid
       this.props.addUserToGroup(username, g_id, s_id)
-      
+      message.info(`${username} has been added.`, 3)
     } else {
       message.warn("Only admin can add new members.", 3)
     }
@@ -103,14 +103,10 @@ class MainChatArea extends Component {
                   content={<p>{item.message}</p>}
                   datetime={
                     <Tooltip
-                      title={moment()
-                        .subtract(item.createAt, "days")
-                        .format("YYYY-MM-DD HH:mm:ss")}
+                      title={moment(item.createdAt).fromNow()}
                     >
                       <span>
-                        {moment()
-                          .subtract(item.createAt)
-                          .fromNow()}
+                        {moment(item.createdAt).fromNow()}
                       </span>
                     </Tooltip>
                   }
