@@ -11,7 +11,7 @@ export const LoginWithGithub = () => (dispatch, getState, {getFirebase, getFires
             const {isNewUser, username, profile} = result.additionalUserInfo
             if(isNewUser) {
                 firestore.collection("users").doc(result.user.uid).set({
-                    name: profile.name,
+                    name: profile.name ? profile.name : username,
                     username: username,
                     member_since: new Date()                
                 }).then(() => dispatch({

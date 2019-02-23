@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import {Menu, Button, List, Tooltip, Col, Row, Dropdown, Icon, Comment, Input } from "antd";
+import {Menu, Button, List, message, Tooltip, Col, Row, Dropdown, Icon, Comment, Input } from "antd";
 import { connect } from "react-redux";
 import moment from "moment";
 import { Chat } from "../../Store/Actions/chatAction";
 import {Link} from 'react-router-dom'
+import { AddUserToChat } from "../../Store/Actions/chatAction";
 class MainChatArea extends Component {
 
   state = {
-    message: ""
+    message: "",
+    add_user_name: ""
   }
 
   onClick = () => {
@@ -29,15 +31,39 @@ class MainChatArea extends Component {
     });
   };
 
+  onChangeUserToAdd = e => {
+    this.setState({
+      add_user_name: e.target.value
+    })
+  }
+
+  addUser = () => {
+    // console.log("",this.props.fi.profile.username)
+    // console.log("", this.props.group.adminName)
+    if(this.props.group.adminName === this.props.fi.profile.username) {
+      const username = this.state.add_user_name
+      const g_id = this.props.runningDiscussion
+      const s_id = this.props.firebase.uid
+      this.props.addUserToGroup(username, g_id, s_id)
+      
+    } else {
+      message.warn("Only admin can add new members.", 3)
+    }
+
+    this.setState({
+      add_user_name: ""
+    })
+    
+  }
+
  
   render() {
 
     const menu = this.props.members && (
       <Menu>
-        {this.props.members.map((member)=> {return <Menu.Item key={member.id}>{member.name}</Menu.Item>})}
+        {this.props.members.map((member)=> {return <Menu.Item key={member.id}>{member.name} {this.props.group.adminName === member.name ? <b>(admin)</b> : null}</Menu.Item>})}
       </Menu>
     )
-    console.log(this.props.members)
     return (
       <Col span={18}>
         {this.props.group && (<Row id="message-box" className="up">
@@ -53,8 +79,8 @@ class MainChatArea extends Component {
           <Col span={12} id="grp-icon"> 
           <Row>
           <Col span={12}>
-          <Input type="text" id="uname" placeholder="Username"/>
-          <Button type="primary">Add</Button>
+          <Input type="text" onChange={this.onChangeUserToAdd} id="uname" value={this.state.add_user_name} placeholder="Username"/>
+          <Button type="primary" onClick={this.addUser}>Add</Button>
           </Col>
           <Col span={10} offset={2}>
           <Button id="send-btn">
@@ -146,6 +172,7 @@ const mapStateToProps = (state, ownProps) => {
     });
     
   return {
+    fi: state.firebase,
     firebase: state.firebase.auth,
     firestore: state.firestore,
     group,
@@ -157,7 +184,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    send_message: detail => dispatch(Chat(detail))
+    send_message: detail => dispatch(Chat(detail)),
+    addUserToGroup: (username, g_id, s_id) => dispatch(AddUserToChat(username, g_id, s_id))
   };
 };
 
