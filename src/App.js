@@ -4,8 +4,7 @@ import LoginScreen from './Components/Screens/Login';
 import DashboardScreen from './Components/Screens/Dashboard';
 import Test from './Components/Screens/test';
 class App extends Component {
-
-  render() {
+ render() {
     return (
       <BrowserRouter>
         <div className="App">
