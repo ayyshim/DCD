@@ -3,6 +3,7 @@ import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
+import {Button} from 'antd';
 
 const code = `Enter Code Here!!!
 `;
@@ -13,6 +14,7 @@ class Test extends React.Component {
   render() {
     
     return (
+      <div>
       <Editor
         value={this.state.code}
         onValueChange={code => this.setState({ code })}
@@ -23,6 +25,14 @@ class Test extends React.Component {
           fontSize: 12,
         }}
       />
+      <br/>
+      <Button onClick={this.onClose} style={{ marginRight: 8 }}>
+              Cancel
+            </Button>
+            <Button onClick={this.onClose} type="primary">
+              Submit
+            </Button>
+            </div>
     );
   }
 }
