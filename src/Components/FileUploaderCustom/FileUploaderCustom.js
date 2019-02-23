@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import firebase from "firebase";
+import firebase from '../../Configs/firebaseConfig'
 import FileUploader from "react-firebase-file-uploader";
-import {Button} from "antd";
- 
+import {message} from 'antd'
+import { MakeEntry } from "../../Store/Actions/projectActions";
+import {connect} from 'react-redux'
 class FileUploaderCustom extends Component {
   state = {
     isUploading: false,
@@ -10,22 +11,26 @@ class FileUploaderCustom extends Component {
     avatarURL: ""
   };
  
-  handleChangeUsername = event =>
-    this.setState({ username: event.target.value });
-  handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
-  handleProgress = progress => this.setState({ progress });
+
+  handleUploadStart = () => {
+    message.loading('Uploading...')
+  };
+  handleProgress = progress => {
+    console.log(progress)
+  };
   handleUploadError = error => {
     this.setState({ isUploading: false });
     console.error(error);
   };
   handleUploadSuccess = filename => {
-    this.setState({ avatar: filename, progress: 100, isUploading: false });
-    firebase
-      .storage()
-      .ref("all")
-      .child(filename)
-      .getDownloadURL()
-      .then(url => this.setState({ uploadURL: url }));
+    message.success("Problem file uploaded")
+    const forFirestore = {
+      filename,
+      g_id: this.props.problem_id,
+      by: this.props.user,
+      created_at: new Date()
+    }
+    this.props.upadateToFirestore(forFirestore)
   };
  
   render() {
@@ -35,16 +40,21 @@ class FileUploaderCustom extends Component {
             accept="*"
             name="Upload" id="src"
             randomizeFilename
-            storageRef={firebase.storage().ref("all")}
+            storageRef={firebase.storage().ref(`problems/${this.props.problem_id}`)}
             onUploadStart={this.handleUploadStart}
             onUploadError={this.handleUploadError}
             onUploadSuccess={this.handleUploadSuccess}
             onProgress={this.handleProgress}
           />
-          <Button type="primary">Share Code</Button>
       </div>
     );
   }
 }
- 
-export default FileUploaderCustom;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    upadateToFirestore: (forFirestore) => dispatch(MakeEntry(forFirestore))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(FileUploaderCustom);
