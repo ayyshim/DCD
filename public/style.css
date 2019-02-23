@@ -1,0 +1,143 @@
+body{
+	background-color: #eee !important;
+}
+
+.upper{
+	font-size: 2.5em;
+	margin: 10%;
+	font-weight: 500;
+}
+
+.avatar{
+	margin : 1em !important;
+}
+
+
+.btn{
+	text-align: center;
+	margin: 2em !important;
+}
+
+.right{
+	text-align: right;
+	margin: 2em !important;
+}
+
+.side{
+	background-color: #eee !important;
+}
+
+.left-b{
+	margin: 1em;
+}
+
+.left-a{
+	height: 465px;
+	min-height: 465px;
+	min-height: 465px;
+}
+
+.left-a li {
+	    border-bottom: 0.4px solid;
+		/* margin-bottom: 0px !important; */
+		padding: 13px;
+    }
+
+.left-a .side{
+	max-width: 99.97% !important;
+    min-width: 99.97% !important;
+    width: 99.97%  !important;
+}
+
+.sidebar{
+	border-right: 0.3px solid !important;
+}
+
+.srch{
+	margin-bottom: 5px !important;
+}
+
+.txt-center{
+	text-align: center;
+}
+
+#activity-box{
+	border-left: 0.3px solid !important;
+	min-height: 660px !important;
+}
+
+.ant-dropdown-link{
+	float: right;
+	margin: 1em !important;
+}
+
+#grp-name{
+	padding: 14px;
+	font-size: 20px;
+}
+
+.up{
+	border-bottom: 0.3px solid !important;
+}
+
+Input{
+	margin: 4px !important;
+}
+
+hr{
+	margin: 0px;
+    border: 0.3px solid #cecece;
+}
+
+.up .ant-dropdown .ant-dropdown-placement-bottomLeft {
+    left: 962.38px !important;
+    top: 32px !important;
+}
+
+#chat{
+    padding: 5px !important;
+    margin: 10px 7px;
+    border: 0.5px solid #b2c8da;
+    border-radius: 8px !important;}
+
+#chat-box{
+height: 500px;
+}
+
+#activity-box .side,#chat-box-msg .side
+{
+    max-width: 100% !important;
+    min-width: 100% !important;
+    width: 100% !important;
+}
+
+.left-msg ,.right-msg{
+	width: 100%;
+}
+
+.left-msg-content , .right-msg-content
+{   
+	width: 60%;
+}
+
+#right-panel{
+	max-width: 95.986% !important;
+    min-width: 95.986% !important;
+    width: 95.986%  !important;
+    margin: 5px!important;
+}
+
+#txt{
+	margin: 3% !important;
+	margin-bottom: 2% !important;
+	width: 100%;
+	height: 30px !important;
+}
+
+#send-btn{
+	position: relative;
+	margin: 3% !important;
+	margin-bottom: 2% !important;
+}
+
+

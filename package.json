@@ -1,0 +1,47 @@
+{
+  "name": "dcd",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.13.5",
+    "antd-mobile": "^2.2.9",
+    "firebase": "^5.8.4",
+    "moment": "^2.24.0",
+    "prismjs": "^1.15.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-redux": "^5.0.7",
+    "react-redux-firebase": "^2.1.6",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.5",
+    "react-simple-code-editor": "^0.9.3",
+    "redux": "^4.0.0",
+    "redux-firestore": "^0.5.7",
+    "redux-thunk": "^2.3.0",
+    "yarn": "^1.13.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "style": "css"
+      }
+    ]
+  ]
+}
