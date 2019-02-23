@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Col, Layout, Button, Icon} from 'antd'
+import {Col, Layout} from 'antd'
 import ProblemItem from './ProblemItem';
 import {connect} from 'react-redux'
 import { ClickedProblem } from '../../Store/Actions/problemActions';

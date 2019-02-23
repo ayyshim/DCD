@@ -1,5 +1,6 @@
-import { GROUP_CREATED, GROUP_CREATE_ERROR } from "../../Constants/actions";
-
+import React from 'react';
+import { GROUP_CREATED, GROUP_CREATE_ERROR, DELETE_GROUP } from "../../Constants/actions";
+import {Redirect} from 'react-router-dom'
 const initState = {}
 
 const DashboardReducer = (state = initState, action) => {
@@ -9,6 +10,8 @@ const DashboardReducer = (state = initState, action) => {
             return state
         case GROUP_CREATE_ERROR:
             return state
+        case DELETE_GROUP:
+            return <Redirect to="/"/>
         default:
             return state
     }

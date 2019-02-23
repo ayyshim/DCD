@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import { Logout } from '../../Store/Actions/authActions';
 import { CreateGroup } from '../../Store/Actions/dashboardAction';
 import {Row, Col, Avatar} from 'antd';
-import {Button, Input,Layout, Icon, Modal} from 'antd';
+import {Button, Input,Layout, Modal} from 'antd';
 import { firestoreConnect } from "react-redux-firebase";
 import GroupList from '../Groups/GroupList'
 import MainChatArea from '../ChatArea/MainArea';

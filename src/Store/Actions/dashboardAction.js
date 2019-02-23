@@ -1,4 +1,4 @@
-import { GROUP_CREATED, GROUP_CREATE_ERROR } from "../../Constants/actions";
+import { GROUP_CREATED, GROUP_CREATE_ERROR, DELETE_GROUP } from "../../Constants/actions";
 
 export const CreateGroup = (group) => (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore()
@@ -16,4 +16,13 @@ export const CreateGroup = (group) => (dispatch, getState, {getFirebase, getFire
         type: GROUP_CREATE_ERROR,
         payload: err
     }))
+}
+
+export const DeleteGroup = (groupId) => (dispatch, getState, {getFirebase, getFirestore}) => {
+    const firestore = getFirestore()
+
+    firestore.collection("groups").doc(groupId).delete()
+        .then(()=> dispatch({
+            type: DELETE_GROUP
+        }))
 }

@@ -18,6 +18,7 @@ import { Chat } from "../../Store/Actions/chatAction";
 import { Link } from "react-router-dom";
 import { AddUserToChat } from "../../Store/Actions/chatAction";
 import FileUploaderCustom from "../../Components/FileUploaderCustom/FileUploaderCustom";
+import { DeleteGroup } from "../../Store/Actions/dashboardAction";
 
 class MainChatArea extends Component {
   state = {
@@ -39,6 +40,10 @@ class MainChatArea extends Component {
       message: ""
     });
   };
+
+  onEndSession = () => {
+    this.props.endSession(this.props.runningDiscussion)
+  }
 
   onChangeMessage = e => {
     this.setState({
@@ -134,7 +139,7 @@ class MainChatArea extends Component {
                     <b>
                       {this.props.firebase.uid === item.s_id
                         ? "YOU"
-                        : item.s_dn}
+                        : item.s_dn ? item.s_dn : item.name}
                     </b>
                   }
                   content={<p>{item.message}</p>}
@@ -168,7 +173,7 @@ class MainChatArea extends Component {
                       Send <Icon type="cloud-upload" />
                     </Button>
                   </Col>
-                  <Col span={1}><Button type="danger">Leave Group</Button></Col>
+                  {this.props.group.adminName === this.props.fi.profile.username ?                   <Col span={1}><Button onClick={this.onEndSession} type="danger">End Session</Button></Col> : null}
                 </Row>
               )}
             </div>
@@ -211,7 +216,8 @@ const mapDispatchToProps = dispatch => {
   return {
     send_message: detail => dispatch(Chat(detail)),
     addUserToGroup: (username, g_id, s_id) =>
-      dispatch(AddUserToChat(username, g_id, s_id))
+      dispatch(AddUserToChat(username, g_id, s_id)),
+    endSession: (groupId) => dispatch(DeleteGroup(groupId))
   };
 };
 
