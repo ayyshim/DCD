@@ -107,7 +107,7 @@ class MainChatArea extends Component {
                 </Button>
                 <Dropdown overlay={menu}>
                   <Link to="#" className="men">
-                    <Icon type="meh" />
+                    <Icon type="team" />
                   </Link>
                 </Dropdown>
               </div>
@@ -150,7 +150,7 @@ class MainChatArea extends Component {
         </Row>
         <br />
         <Row>
-          <Col span={4} />
+          <Col span={2} />
           <Col span={16}>
             <div>
               {this.props.group && (
@@ -163,16 +163,17 @@ class MainChatArea extends Component {
                       value={this.state.message}
                     />
                   </Col>
-                  <Col span={8} offset={2}>
+                  <Col span={5} offset={1}>
                     <Button onClick={this.onClick} type="primary" id="send-btn">
                       Send <Icon type="cloud-upload" />
                     </Button>
                   </Col>
+                  <Col span={4}><Button type="warning">Leave Group</Button></Col>
                 </Row>
               )}
             </div>
           </Col>
-          <Col span={4} />
+          <Col span={6} />
         </Row>
       </Col>
     );
