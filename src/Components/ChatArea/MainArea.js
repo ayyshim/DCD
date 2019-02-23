@@ -41,7 +41,7 @@ class MainChatArea extends Component {
     return (
       <Col span={18}>
         {this.props.group && (<Row id="message-box" className="up">
-          <Col span={10}>
+          <Col span={16}>
             <div id="grp-name">
               {this.props.group && this.props.group.name}{" "}
               {this.props.problem.problem_title === undefined
@@ -50,14 +50,16 @@ class MainChatArea extends Component {
             </div>
           </Col>
 
-          <Col span={14} id="grp-icon"> 
-          <Input type="text" placeholder="Username" id="inputta"/>
-          <Button type="primary">Add User</Button> <Button>Share Code</Button>
-            <Dropdown overlay={this.props.menu}>
-              <Link className="ant-dropdown-link" href="#">
+          <Col span={8} id="grp-icon">  
+          <Button type="primary" id="send-btn">
+                Share Problem
+                  </Button>
+            <Dropdown overlay={menu}>
+              <Link to="#" className="ant-dropdown-link">
                 <Icon type="meh" />
               </Link>
             </Dropdown>
+            <Icon type="plus-circle" />
           </Col>
         </Row>)}
 
@@ -98,7 +100,7 @@ class MainChatArea extends Component {
               {this.props.group && (
                 <Row>
                   <Col span={14}>
-                    <Input
+                    <input
                       onChange={this.onChangeMessage}
                       placeholder="Type Message"
                       id="txt"

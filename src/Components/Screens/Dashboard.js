@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
+
 import { Logout } from '../../Store/Actions/authActions';
 import { CreateGroup } from '../../Store/Actions/dashboardAction';
 import {Row, Col, Avatar} from 'antd';
-import {Button, Divider, Modal, Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber, Dropdown, message,
- Layout, Menu, Icon, Comment, Tooltip, List, Popover, Popconfirm} from 'antd';
+import {Button, Input,Layout, Icon, Modal} from 'antd';
 import { firestoreConnect } from "react-redux-firebase";
 import GroupList from '../Groups/GroupList'
 import MainChatArea from '../ChatArea/MainArea';
@@ -86,7 +86,7 @@ class DashboardScreen extends Component {
     { 
         
         const {firebase} = this.props
-        if(!firebase.uid) return <Redirect to="/"/>
+        if(!firebase.uid) return <Redirect to="/"/> 
         return ( 
             <React.Fragment>
                 <div>
