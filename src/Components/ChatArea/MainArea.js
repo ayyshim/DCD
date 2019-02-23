@@ -31,7 +31,7 @@ class MainChatArea extends Component {
     console.log(this.props.firebase)
     return (
       <Col span={18}>
-        <Row id="message-box" className="up">
+        {this.props.group && (<Row id="message-box" className="up">
           <Col span={16}>
             <div id="grp-name">
               {this.props.group && this.props.group.name}{" "}
@@ -54,7 +54,7 @@ class MainChatArea extends Component {
               </a>
             </Dropdown>
           </Col>
-        </Row>
+        </Row>)}
 
         <Row id="chat-box" className="up">
           {this.props.group && (
