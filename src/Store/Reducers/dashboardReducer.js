@@ -5,7 +5,7 @@ const initState = {}
 const DashboardReducer = (state = initState, action) => {
     switch (action.type) {
         case GROUP_CREATED:
-            console.log(action.payload)
+            console.log("HHH")
             return state
         case GROUP_CREATE_ERROR:
             return state

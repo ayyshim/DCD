@@ -6,90 +6,21 @@ import {connect} from 'react-redux'
 import { Logout } from '../../Store/Actions/authActions';
 import { CreateGroup } from '../../Store/Actions/dashboardAction';
 import {Row, Col, Avatar} from 'antd';
-import {Button, Divider, Modal, Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber, Dropdown, message,
- Layout, Menu, Icon, Comment, Tooltip, List, Popover} from 'antd';
+import {Button, Input,Layout, Icon, Modal} from 'antd';
 import { firestoreConnect } from "react-redux-firebase";
-import moment from 'moment';
 import GroupList from '../Groups/GroupList'
 import MainChatArea from '../ChatArea/MainArea';
 import ProblemsList from '../Problems/ProblemsList';
 
 
-const code = `function add(a, b) {
-  return a + b;
-}
-`;
-
-const data = [
-  {
-    author: 'kanxuravi',
-    content: (
-      <p>I'm having a problem in this piece of code about fetching the data from a server. What is your approach? Please modify in it.</p>
-    ),
-    datetime: (
-      <Tooltip title={moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-        <span>{moment().subtract(1, 'days').fromNow()}</span>
-      </Tooltip>
-    ),
-  },
-  {
-    author: 'aayshim',
-    content: (
-      <p>For Data Fetching, I mostly use Javascript as i'm more comfortable in it. But if you have asked for python, Check the piece of code that i uploaded.</p>
-    ),
-    datetime: (
-      <Tooltip title={moment().subtract(0, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-        <span>{moment().subtract(0, 'days').fromNow()}</span>
-      </Tooltip>
-    ),
-  },
-];
-
-const { TextArea } = Input;
-
-const formItemLayout = {
-    labelCol: {
-      xs: { span: 24 },
-      sm: { span: 5 }
-    },
-    wrapperCol: {
-      xs: { span: 24 },
-      sm: { span: 12 },
-    },
-  }; 
-
 const {
-  Header, Content, Footer, Sider,
+  Sider,
 } = Layout;
 
-const onClick = ({ key }) => {
-  switch (key) {
-    case "1":
-      break;
-    case "2":
-      break;
-    default:
-      break;
-  }
-};
-
-const text = <span>Code-Editor</span>;
-
-
-const buttonWidth = 70;
-
-const menu = (
-  <Menu >
-    <Menu.Item>Ayyshim</Menu.Item>
-    <Menu.Item>kanxuravi</Menu.Item>
-    <Menu.Item>Vijay</Menu.Item>
-    <Menu.Item>Raviraaz</Menu.Item>
-    </Menu>
-);
 
 class DashboardScreen extends Component {
 
-  state = { code };
+  state = { };
 
   logoutClick = () => {
     this.props.logout();
@@ -137,6 +68,7 @@ class DashboardScreen extends Component {
       adminName: this.props.fi.profile.username,
       createdAt: new Date()
     };
+    
     this.props.createGroup(group);
     this.setState({
       visible: false
@@ -184,7 +116,7 @@ class DashboardScreen extends Component {
                         <Row>
                           <MainChatArea
                             runningDiscussion = {this.state.runningDiscussion}
-                            menu = {menu}
+                            
                           />
                           <ProblemsList
                             runningDiscussion = {this.state.runningDiscussion}
@@ -204,6 +136,7 @@ const mapStateToProps = state => {
     firebase: state.firebase.auth,
     fi: state.firebase,
     groupDisscussion: state.chatRed.runningDiscussion,
+    
   
   };
 };

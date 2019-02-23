@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import {Col, Layout, Button} from 'antd'
+import {Col, Layout} from 'antd'
 import ProblemItem from './ProblemItem';
 import {connect} from 'react-redux'
 import { ClickedProblem } from '../../Store/Actions/problemActions';
-import { nonsense } from 'antd-mobile/lib/picker';
 const {
-    Header, Content, Footer, Sider,
+Sider,
   } = Layout;
 class ProblemsList extends Component {
     state = { 

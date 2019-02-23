@@ -1,4 +1,4 @@
-import { CLICKED_GD, CLICKED_PROBLEM } from "../../Constants/actions";
+import { CLICKED_PROBLEM } from "../../Constants/actions";
 
 const initState = {
     problem: {

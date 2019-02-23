@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import { Button, List, Tooltip, Col, Row, Dropdown, Icon, Comment } from "antd";
+import {Menu, Button, List, Tooltip, Col, Row, Dropdown, Icon, Comment } from "antd";
 import { connect } from "react-redux";
 import moment from "moment";
 import { Chat } from "../../Store/Actions/chatAction";
-
+import {Link} from 'react-router-dom'
 class MainChatArea extends Component {
-  state = {};
+
+  state = {
+    message: ""
+  }
 
   onClick = () => {
     const details = {
@@ -28,6 +31,13 @@ class MainChatArea extends Component {
 
  
   render() {
+
+    const menu = this.props.members && (
+      <Menu>
+        {this.props.members.map((member)=> {return <Menu.Item key={member.id}>{member.name}</Menu.Item>})}
+      </Menu>
+    )
+    console.log(this.props.members)
     return (
       <Col span={18}>
         {this.props.group && (<Row id="message-box" className="up">
@@ -44,10 +54,10 @@ class MainChatArea extends Component {
           <Button type="primary" id="send-btn">
                 Share Problem
                   </Button>
-            <Dropdown overlay={this.props.menu}>
-              <a className="ant-dropdown-link" href="#">
+            <Dropdown overlay={menu}>
+              <Link to="#" className="ant-dropdown-link">
                 <Icon type="meh" />
-              </a>
+              </Link>
             </Dropdown>
             <Icon type="plus-circle" />
           </Col>
@@ -121,7 +131,8 @@ const mapStateToProps = (state, ownProps) => {
     state.firestore.ordered.members &&
     state.firestore.ordered.members.filter(m => {
       return m.g_id === key;
-    });  const messages = state.firestore.ordered.messages;
+    });  
+  const messages = state.firestore.ordered.messages;
   const list_message =
     messages &&
     messages.filter(msg => {
