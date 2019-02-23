@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Drawer, Button, Icon, Popover } from "antd";
 import firebase from '../../Configs/firebaseConfig'
-import Test from '../Screens/test'
 
 class ProblemItem extends Component {
   state = { visible: false };
@@ -38,25 +37,11 @@ class ProblemItem extends Component {
     return ( 
         <Popover
           placement="topLeft"
-          title={this.props.problem.by}
+          title={this.props.problem.by} 
           content={
             <div>
-              <p onClick={this.showDrawer}>{this.props.problem.filename}</p>
-              <Drawer
-          title="Code Editor" width={720} height={500}
-          placement="right"
-          closable={false}
-          onClose={this.onClose}
-          visible={this.state.visible} style={{
-            overflow: 'auto',
-            height: 'calc(100% - 108px)',
-            paddingBottom: '108px',
-          }}>
-
-          
-            <Test/>
-           
-</Drawer>
+              <p>{this.props.problem.filename}</p>
+              
        
               <a type="primary" href={this.state.url} id="dwn">
                 <Icon type="download" /> Download
