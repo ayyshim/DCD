@@ -157,7 +157,7 @@ export default compose(
     },
     {
       collection: "problems",
-      orderBy: ['created_at', 'desc']
+      orderBy: ['created_at']
     },
     {
       collection: "messages",
