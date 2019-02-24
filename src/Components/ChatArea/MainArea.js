@@ -172,7 +172,7 @@ class MainChatArea extends Component {
                       Send <Icon type="cloud-upload" />
                     </Button>
                   </Col>
-                  {this.props.group.adminName === this.props.fi.profile.username ?                   <Col span={1}><Button onClick={this.onEndSession} type="danger">End Session</Button></Col> : null}
+                  {/* {this.props.group.adminName === this.props.fi.profile.username ?                   <Col span={1}><Button onClick={this.onEndSession} type="danger">End Session</Button></Col> : null} */}
                 </Row>
               )}
             </div>
