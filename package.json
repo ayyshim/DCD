@@ -19,7 +19,7 @@
     "redux": "^4.0.0",
     "redux-firestore": "^0.5.7",
     "redux-thunk": "^2.3.0",
-    "yarn": "^1.13.0"
+    "yarn": "^1.17.3"
   },
   "scripts": {
     "start": "react-scripts start",
